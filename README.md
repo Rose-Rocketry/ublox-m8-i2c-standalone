@@ -24,7 +24,27 @@ dtoverlay=i2c-gpio,bus=3,i2c_gpio_sda=23,i2c_gpio_scl=24
 ```
 
 ## Wiring
-_TODO_
+| u-blox pin | Raspberry Pi pin                                 |
+|------------|--------------------------------------------------|
+| 3v3        | [3v3](https://pinout.xyz/pinout/3v3_power)       |
+| GND        | [GND](https://pinout.xyz/pinout/ground)          |
+| SDA        | [GPIO23](https://pinout.xyz/pinout/pin16_gpio23) |
+| SCL        | [GPIO24](https://pinout.xyz/pinout/pin18_gpio24) |
+
+![Image of Sparkfun u-blox SAM-M8Q connected to a Raspberry Pi zero W](https://user-images.githubusercontent.com/12852902/194787496-3f6a5b18-6893-4dd7-84e0-b92f5a14d139.jpg)
+
+## Testing
+You can test your connection to the module with the following command:
+```sh
+$ python -m ublox_m8_i2c
+Compiling i2c_stream...
+..$GNRMC,010129.00,V,,,,,,,101022,,,N*68
+$GNVTG,,,,,,,,,N*2E
+$GNGGA,010129.00,,,,,0,00,99.99,,,,,,*73
+$GNGSA,A,1,,,,,,,,,,,,,99.99,99.99,99.99*2E
+$GNGSA,A,1,,,,,,,,,,,,,99.99,99.99,99.99*2E
+$GPGSV,1,1,01,08,,,19*78
+```
 
 
 # Usage Example
