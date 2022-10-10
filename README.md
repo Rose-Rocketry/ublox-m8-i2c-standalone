@@ -4,6 +4,7 @@ Asynchronous library for interfacing with u-blox M8 series GNSS modules over I2C
 
 # Installation
 ## Install ubloc-m8-i2c
+It's recommended to create a [Virtual Environment](https://docs.python.org/3/library/venv.html) before installing
 ```bash
 pip install "git+https://github.com/Rose-Rocketry/ublox-m8-i2c"
 ```

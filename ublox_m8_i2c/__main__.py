@@ -16,7 +16,7 @@ async def main():
             raise EOFError()
 
         # Read messages from the module
-        print(await reader.read(4096))
+        print((await reader.read(4096)).decode())
 
 
 if __name__ == "__main__":

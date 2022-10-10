@@ -17,8 +17,8 @@ async def open_async(
         binary_path,
         bus,
         str(address),
-        str(int(poll_sleep * 1_000_000)),
-        str(int(poll_error_sleep * 1_000_000)),
+        str(int(poll_sleep * 1_000)),
+        str(int(poll_error_sleep * 1_000)),
         stdin=PIPE,
         stdout=PIPE,
     )
