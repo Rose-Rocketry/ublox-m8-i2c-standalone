@@ -115,7 +115,7 @@ void poll_write_timeout(int fd, uint8_t addr, unsigned long timeout)
   struct pollfd pfds[] = {
       {STDIN_FILENO, POLLIN}};
 
-  char buffer[4096];
+  unsigned char buffer[4096];
   unsigned long start = gettime_ms();
 
   unsigned long time_left = timeout - (gettime_ms() - start);
