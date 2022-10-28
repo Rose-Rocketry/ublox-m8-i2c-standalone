@@ -154,8 +154,8 @@ int main(int argc, const char **argv)
     return 1;
   }
 
-  unsigned long addr = strtoul(argv[2], NULL, 10);
-  if (addr == 0)
+  unsigned long addr = strtoul(argv[2], NULL, 16);
+  if (addr == 0 || addr > 127)
   {
     fprintf(stderr, "Invalid argument \"%s\" for <addr>", argv[2]);
     return 1;

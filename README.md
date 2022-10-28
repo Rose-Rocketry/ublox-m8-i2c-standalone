@@ -1,27 +1,19 @@
-# ublox-M8-I2C
-Asynchronous library for interfacing with u-blox M8 series GNSS modules over I2C
-
+# ublox-M8-I2C-standalone
+Simple program for communicating with u-blox M8 series GNSS modules over I2C
 
 # Installation
-## Install ubloc-m8-i2c
-It's recommended to create a [Virtual Environment](https://docs.python.org/3/library/venv.html) before installing
+## Build `i2c_stream`
+Run this code on the target:
 ```bash
-pip install "git+https://github.com/Rose-Rocketry/ublox-m8-i2c"
+gcc i2c_stream.c -o i2c_stream
 ```
 
 ## Setup software I2C
 Many Raspberry Pi's, including the Raspberry Pi zero W, don't support clock stretching on their hardware I2C bus.
 You can add the following to `/boot/config.txt` activate a bit-banged I2C bus on GPIO pins 23 and 24 at `/dev/i2c-3`
 ```ini
-# (...default values...)
-
-# Uncomment some or all of these to enable the optional hardware interfaces
+[all]
 dtoverlay=i2c-gpio,bus=3,i2c_gpio_sda=23,i2c_gpio_scl=24
-#dtparam=i2c_arm=on
-#dtparam=i2s=on
-#dtparam=spi=on
-
-# (...default values...)
 ```
 
 ## Wiring
@@ -37,14 +29,10 @@ dtoverlay=i2c-gpio,bus=3,i2c_gpio_sda=23,i2c_gpio_scl=24
 ## Testing
 You can test your connection to the module with the following command:
 ```sh
-$ python -m ublox_m8_i2c
-Compiling i2c_stream...
-..$GNRMC,010129.00,V,,,,,,,101022,,,N*68
-$GNVTG,,,,,,,,,N*2E
-$GNGGA,010129.00,,,,,0,00,99.99,,,,,,*73
-$GNGSA,A,1,,,,,,,,,,,,,99.99,99.99,99.99*2E
-$GNGSA,A,1,,,,,,,,,,,,,99.99,99.99,99.99*2E
-$GPGSV,1,1,01,08,,,19*78
+$ ./i2c_stream
+Usage: ./i2c_stream <bus> <addr> <poll_sleep_ms> <poll_error_sleep_ms>
+
+$ ./i2c_stream /dev/i2c-3 42 100 1000
 ```
 
 
