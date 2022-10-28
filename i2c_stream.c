@@ -101,11 +101,6 @@ int poll_read(int fd, uint8_t addr)
       exit(1);
     }
 
-    for (int i = 0; i < len; i++)
-    {
-      putc(data_buf[i], stdout);
-    }
-
     return len;
   }
 }
@@ -182,7 +177,8 @@ int main(int argc, const char **argv)
     return 1;
   }
 
-  // TODO: read stdin
+  // Disable buffering on stdout
+  setbuf(stdout, NULL);
 
   while (true)
   {
