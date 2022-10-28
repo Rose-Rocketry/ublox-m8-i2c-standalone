@@ -157,21 +157,21 @@ int main(int argc, const char **argv)
   unsigned long addr = strtoul(argv[2], NULL, 16);
   if (addr == 0 || addr > 127)
   {
-    fprintf(stderr, "Invalid argument \"%s\" for <addr>", argv[2]);
+    fprintf(stderr, "Invalid argument \"%s\" for <addr>\n", argv[2]);
     return 1;
   }
 
   unsigned long poll_sleep_ms = strtoul(argv[3], NULL, 10);
   if (poll_sleep_ms == 0)
   {
-    fprintf(stderr, "Invalid argument \"%s\" for <poll_sleep_ms>", argv[3]);
+    fprintf(stderr, "Invalid argument \"%s\" for <poll_sleep_ms>\n", argv[3]);
     return 1;
   }
 
   unsigned long poll_error_sleep_ms = strtoul(argv[4], NULL, 10);
   if (poll_error_sleep_ms == 0)
   {
-    fprintf(stderr, "Invalid argument \"%s\" for <poll_error_sleep_ms>", argv[4]);
+    fprintf(stderr, "Invalid argument \"%s\" for <poll_error_sleep_ms>\n", argv[4]);
     return 1;
   }
 
